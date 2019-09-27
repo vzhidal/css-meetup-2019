@@ -1,0 +1,109 @@
+.bed {
+    background: #a47a6a;
+    visibility: hidden;
+}
+
+#bed:checked ~ .plot .bed {
+    visibility: visible;
+}
+
+#bed:checked ~ .plot .bed {
+    visibility: visible;
+}
+
+.bed--carrot {
+    grid-area: 🥕;
+}
+
+#carrot-organized:checked ~ .plot .bed--carrot {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(3, 1fr);
+    column-gap: 15px;
+}
+
+.bed--tomato {
+    grid-area: 🍅;
+}
+
+#tomato-organized:checked ~ .plot .bed--tomato {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 25px;
+}
+
+.bed--potato {
+    grid-area: 🥔;
+
+}
+
+#potato-organized:checked ~ .plot .bed--potato {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
+    place-items: stretch;
+}
+
+.bed--corn {
+    grid-area: 🌽;
+
+}
+
+#corn-organized:checked ~ .plot .bed--corn {
+    display: grid;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    place-items: stretch center;
+}
+
+.bed--cucumber {
+    grid-area: 🥒;
+
+}
+
+#cucumber-organized:checked ~ .plot .bed--cucumber {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: 1fr 1fr;
+    place-items: center;
+    row-gap: 50px;
+}
+
+.bed--onion {
+    grid-area: 🧅;
+}
+
+#onion-organized:checked ~ .plot .bed--onion {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(3, 1fr);
+    column-gap: 35px;
+}
+
+.bed__hole {
+    font-size: 45px;
+    visibility: hidden;
+}
+
+#bed-hole:checked ~ .plot .bed__hole {
+    visibility: visible;
+}
+
+.bed {
+    counter-reset: hole
+}
+
+.bed__hole {
+    position: relative;
+}
+
+#counter:checked ~ .plot .bed__hole::after {
+    counter-increment: hole;
+    content: counter(hole);
+    position: absolute;
+    font-size: 0.5em;
+    top: 0;
+    left: 0;
+}

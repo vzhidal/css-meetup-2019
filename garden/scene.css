@@ -1,0 +1,77 @@
+body{
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas: "A B C D" "E F G H" "I J K L";
+
+    scroll-snap-type: both mandatory;
+}
+
+.scene {
+    height: 100vh;
+    width: 100vw;
+
+    scroll-snap-align: center;
+}
+
+.scene--1{
+    background: #008000;
+    grid-area: A;
+}
+
+.scene--2{
+    background: #004100;
+    grid-area: B;
+}
+
+.scene--3{
+    background: #006400;
+    grid-area: C;
+}
+
+.scene--4{
+    background: #0f9a0f;
+    grid-area: D;
+}
+.scene--5{
+    background: #004100;
+    grid-area: E;
+}
+
+.scene--6{
+    background: #008000;
+    grid-area: F;
+}
+
+.scene--7{
+    background: #0f9a0f;
+    grid-area: G;
+}
+
+.scene--8{
+    background: #006400;
+    grid-area: H;
+}
+.scene--9{
+    background: #0f9a0f;
+    grid-area: I;
+}
+
+.scene--10{
+    background: #006400;
+    grid-area: J;
+}
+
+.scene--11{
+    background: #004100;
+    grid-area: K;
+}
+
+.scene--12{
+    background: #008000;
+    grid-area: L;
+}
+
+

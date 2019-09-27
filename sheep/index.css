@@ -1,0 +1,596 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background: #53bfe0;
+    vertical-align: middle;
+    text-align: center;
+    transform: translate3d(0, 0, 0);
+    font-size: 20px;
+    mix-blend-mode: multiply;
+}
+
+body:before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.25em;
+}
+
+.scene {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.sheep {
+    display: inline-block;
+    position: relative;
+    font-size: 1em;
+    animation: sheep-move 60s;
+    outline: none;
+}
+
+.sheep * {
+    transition: transform 0.3s;
+}
+
+.sheep .top {
+    position: relative;
+    top: 0;
+    animation: bob 1s infinite;
+}
+
+.sheep:focus {
+    animation-play-state: paused;
+}
+
+.sheep:focus .top {
+    animation-play-state: paused;
+}
+
+.sheep:focus .legs .leg {
+    animation-play-state: paused;
+}
+
+.sheep:focus .body .tail {
+    animation: tail-wag 1s infinite;
+    transition: transform 1s;
+}
+
+.sheep:focus .head {
+    transform: rotate(0deg);
+}
+
+.sheep:focus .head .eye {
+    width: 1.25em;
+    height: 1.25em;
+}
+
+.sheep:focus .head .eye:before {
+    right: 30%;
+}
+
+.sheep:focus .head .eye.one:before, .sheep:focus .head .eye.two:before {
+    animation: eye-pupils-move 10s infinite;
+}
+
+.sheep:focus .head .ear.one {
+    animation: ear-one-shake 10s infinite;
+}
+
+.sheep:focus .head .ear.two {
+    animation: ear-two-shake 10s infinite;
+}
+
+.sheep:focus:active .body {
+    animation: body-tremble 0.5s 5;
+    animation-delay: 2s;
+}
+
+.sheep:focus:active .body .tail {
+    animation: none;
+    transform: translate(-0.5em, -0.5em);
+}
+
+.sheep:focus:active .legs .leg.two, .sheep:focus:active .legs .leg.four {
+    animation: leg-move-shy 1.5s 3;
+    animation-delay: 5s;
+}
+
+.sheep:focus:active .chocolate-balls .ball {
+    animation: chocolate-ball-drop 1s 1;
+    animation-timing-function: ease-in-out;
+}
+
+.sheep:focus:active .chocolate-balls .ball.one {
+    animation-delay: 2.5s;
+}
+
+.sheep:focus:active .chocolate-balls .ball.two {
+    animation-delay: 3s;
+}
+
+.sheep:focus:active .chocolate-balls .ball.three {
+    animation-delay: 3.5s;
+}
+
+.sheep:focus:active .head .ear.one, .sheep:focus:active .head .ear.two {
+    animation-play-state: paused;
+}
+
+.sheep:focus:active .head .eye.one, .sheep:focus:active .head .eye.two {
+    animation: eye-screw-up 9s 1;
+    animation-delay: 2s;
+}
+
+.sheep:focus:active .head .eye.one:before, .sheep:focus:active .head .eye.two:before {
+    animation: eye-pupils-screw-up 9s 1;
+    animation-delay: 2s;
+}
+
+.sheep .head {
+    display: inline-block;
+    width: 5em;
+    height: 5em;
+    border-radius: 100%;
+    background: #211e21;
+    vertical-align: middle;
+    position: relative;
+    top: 1em;
+    transform: rotate(30deg);
+}
+
+.sheep .head:before {
+    content: "";
+    display: inline-block;
+    width: 80%;
+    height: 50%;
+    background: #211e21;
+    position: absolute;
+    bottom: 0;
+    right: -10%;
+    border-radius: 50% 40%;
+}
+
+.sheep .head:hover .ear.one, .sheep .head:hover .ear.two {
+    transform: rotate(0deg);
+}
+
+.sheep .head:active {
+    animation: head-shake 2s 2;
+}
+
+.sheep .head .eye {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    border-radius: 100%;
+    background: white;
+    position: absolute;
+    overflow: hidden;
+}
+
+.sheep .head .eye:before {
+    content: "";
+    display: inline-block;
+    background: black;
+    width: 50%;
+    height: 50%;
+    border-radius: 100%;
+    position: absolute;
+    right: 10%;
+    bottom: 10%;
+    transition: all 0.3s;
+}
+
+.sheep .head .eye.one {
+    right: -2%;
+    top: 1.7em;
+}
+
+.sheep .head .eye.two {
+    right: 2.5em;
+    top: 1.7em;
+}
+
+.sheep .head .ear {
+    background: #211e21;
+    width: 50%;
+    height: 30%;
+    border-radius: 100%;
+    position: absolute;
+}
+
+.sheep .head .ear.one {
+    left: -10%;
+    top: 5%;
+    transform: rotate(-30deg);
+}
+
+.sheep .head .ear.two {
+    top: 2%;
+    right: -5%;
+    transform: rotate(20deg);
+}
+
+.sheep .body {
+    display: inline-block;
+    width: 7em;
+    height: 7em;
+    border-radius: 100%;
+    background: white;
+    position: relative;
+    vertical-align: middle;
+    margin-right: -3em;
+}
+
+.sheep .body .tail {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    border-radius: 100%;
+    background: white;
+    position: relative;
+    left: calc(-50% + 0.5em);
+    top: 50%;
+}
+
+.sheep .legs {
+    display: inline-block;
+    position: absolute;
+    top: 80%;
+    left: 10%;
+    z-index: -1;
+}
+
+.sheep .legs .leg {
+    display: inline-block;
+    background: black;
+    width: 0.5em;
+    height: 2.5em;
+    margin: 0.2em;
+}
+
+.sheep:before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 112%;
+    width: 100%;
+    height: 10%;
+    border-radius: 100%;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.sheep .leg {
+    animation: leg-move 2s infinite;
+    animation-timing-function: ease-in-out;
+}
+
+.sheep .leg.one {
+    animation-delay: 0s;
+}
+
+.sheep .leg.two {
+    animation-delay: 1s;
+}
+
+.sheep .leg.three {
+    animation-delay: 0.25s;
+}
+
+.sheep .leg.four {
+    animation-delay: 1.25s;
+}
+
+.sheep .chocolate-balls .ball {
+    display: inline-block;
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 100%;
+    background: black;
+    position: absolute;
+    overflow: hidden;
+    top: 4em;
+    left: 0.5em;
+    z-index: -1;
+}
+
+@keyframes bob {
+    0% {
+        top: 0;
+    }
+    50% {
+        top: 0.2em;
+    }
+}
+
+@keyframes sheep-move1 {
+    from {
+        transform: translate(0, 0);
+    }
+    to {
+        transform: translate(100em, 0);
+    }
+}
+
+@keyframes sheep-move2 {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(10em, 10em);
+    }
+    26% {
+        transform: translate(10em, 10em) scaleX(-1);
+    }
+    50% {
+        transform: translate(0, 20em) scaleX(-1);
+    }
+    100% {
+        transform: translate(-10em, 30em) scaleX(-1);
+    }
+}
+
+@keyframes tail-wag {
+    0% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(-0.25em, 0);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes leg-move {
+    0% {
+        transform: translate(0, 0);
+    }
+    40% {
+        transform: translate(0.5em, -0.2em);
+    }
+    50% {
+        transform: translate(0.6em, -0.2em);
+    }
+    60% {
+        transform: translate(0.5em, -0.2em);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes leg-move-shy {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(0.6em, 0);
+    }
+}
+
+@keyframes eye-pupils-move-shy {
+from %
+
+{
+    transform: translate(0, 0)
+;
+}
+to
+
+%
+{
+    transform: translate(0.1em, -0.1em)
+;
+}
+}
+
+@keyframes eye-pupils-move {
+    0% {
+        transform: translate(0, 0);
+    }
+    8% {
+        transform: translate(0, 0);
+    }
+    10% {
+        transform: translate(0.1em, 0.1em);
+    }
+    18% {
+        transform: translate(0.1em, 0.1em);
+    }
+    20% {
+        transform: translate(-0.1em, 0.1em);
+    }
+    28% {
+        transform: translate(-0.1em, 0.1em);
+    }
+    30% {
+        transform: translate(-0.1em, 0);
+    }
+    38% {
+        transform: translate(0, 0);
+    }
+    60% {
+        transform: translate(0, 0);
+    }
+    68% {
+        transform: translate(0, 0);
+    }
+    70% {
+        transform: translate(0.1em, -0.1em);
+    }
+    78% {
+        transform: translate(0.1em, -0.1em);
+    }
+    80% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes ear-one-shake {
+    0% {
+        transform: rotate(-30deg);
+    }
+    38% {
+        transform: rotate(-30deg);
+    }
+    40% {
+        transform: rotate(0deg);
+    }
+    42% {
+        transform: rotate(-15deg);
+    }
+    44% {
+        transform: rotate(0deg);
+    }
+    46% {
+        transform: rotate(-30deg);
+    }
+}
+
+@keyframes ear-two-shake {
+    0% {
+        transform: rotate(20deg);
+    }
+    38% {
+        transform: rotate(20deg);
+    }
+    40% {
+        transform: rotate(0deg);
+    }
+    42% {
+        transform: rotate(20deg);
+    }
+    44% {
+        transform: rotate(0deg);
+    }
+    46% {
+        transform: rotate(20deg);
+    }
+}
+
+@keyframes head-shake {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(10deg);
+    }
+    50% {
+        transform: rotate(-10deg);
+    }
+    75% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes body-tremble {
+    0% {
+        transform: scale(1, 1);
+    }
+    25% {
+        transform: scale(0.95, 0.95);
+    }
+    50% {
+        transform: scale(1, 1);
+    }
+    75% {
+        transform: scale(0.95, 0.95);
+    }
+    100% {
+        transform: scale(1, 1);
+    }
+}
+
+@keyframes eye-screw-up {
+    0% {
+        transform: scale(1, 1);
+    }
+    2% {
+        transform: scale(0.95, 0.2);
+    }
+    30% {
+        transform: scale(0.95, 0.2);
+    }
+    32% {
+        transform: scale(1, 1);
+    }
+}
+
+@keyframes eye-pupils-screw-up {
+    0% {
+        transform: scale(1, 1);
+    }
+    2% {
+        transform: scale(1.05, 5);
+    }
+    30% {
+        transform: scale(1.05, 5);
+    }
+    32% {
+        transform: scale(1, 1);
+    }
+    36% {
+        transform: translate(0.3em, -0.3em);
+    }
+    80% {
+        transform: translate(0.3em, -0.3em);
+    }
+    84% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes chocolate-ball-drop {
+    from {
+        transform: rotate(0deg) translate(0) rotate(0deg);
+    }
+    to {
+        transform: rotate(-45deg) translate(-5em) rotate(0deg);
+    }
+}
+
+
+#motion-demo .sheep {
+    offset-path: path('m33.5,141.453125c0,0 0.95517,-0.549149 2,-4c0.579567,-1.914185 1.731445,-7.076889 3,-11c1.656849,-5.123947 4.579697,-11.156876 7,-17c1.711411,-4.131714 5.371346,-9.746742 8,-14c2.351143,-3.80423 2.723991,-6.222733 6,-10c1.853191,-2.136749 4.026752,-3.770248 5,-4c2.176254,-0.513741 5.107002,-2.080986 9,-3c4.352501,-1.027489 8,-3 11,-3c3,0 6,0 10,0c4,0 8.028999,-0.416107 11,0c7.20974,1.009758 9.412071,0.968552 13,3c2.461296,1.393562 4.540497,6.053505 5,8c1.027489,4.352501 2.806168,8.030441 4,15c0.860886,5.025818 1.497559,9.925797 2,15c0.492691,4.97567 0.708572,11.041847 2,19c0.816772,5.033173 2.11586,9.963837 3,13c1.152771,3.958679 1.881332,9.025208 3,14c0.904556,4.022659 2.399017,9.898102 4,17c1.337677,5.933853 3,11 5,16c2,5 3.835068,9.113297 8,15c2.887863,4.081696 6.850754,8.210052 11,11c4.838806,3.253601 6.647491,5.972519 11,7c2.919754,0.689255 6.823746,1.486252 9,2c2.919754,0.689255 6.812119,1.617447 12,-2c5.252335,-3.662384 5.473282,-9.293655 9,-15c2.628662,-4.25325 4.75531,-11.132004 7,-15c1.809723,-3.118484 3.321442,-6.809006 5,-10c2.50705,-4.765991 5,-13 8,-19c3,-6 6.917526,-12.056641 9,-15c2.887863,-4.081696 4.951889,-7.032639 7,-10c4.88649,-7.079697 7.345444,-12.808334 10,-18c3.467102,-6.7808 6.077637,-12.558022 10,-18c3.307617,-4.589081 6.606415,-7.549011 12,-11c1.883514,-1.205139 4,-1 6,-1c2,0 5.017975,-0.096405 16,2c5.008575,0.956108 8.053497,2.540497 10,3c4.352509,1.027489 6,2 7,3c3,3 5.288574,5.868286 7,10c1.210144,2.921562 4,8 6,18c1,5 3.069824,11.988785 4,18c1.081299,6.9879 2.360962,12.142227 4,18c1.45105,5.185989 3.847961,10.079697 6,14c2.805908,5.11145 7.170502,8.838684 10,12c4.270386,4.771149 7.812653,8.206802 10,10c2.78833,2.285873 6.794891,5.220215 10,8c3.777283,3.276016 7.970917,5.044327 11,7c7.925629,5.117065 17,5 20,5c4,0 8,-3 10,-6c4,-6 5.881897,-9.072784 9,-14c1.92807,-3.046722 5.985352,-8.528152 8,-14c2.101654,-5.708145 4.694458,-13.082642 7,-21c2.652405,-9.108505 6.432892,-16.802429 9,-23c2.420288,-5.843124 4.729614,-8.228851 9,-13c2.829498,-3.161316 7,-7 12,-11c5,-4 10.794891,-6.220215 14,-9c3.777283,-3.276009 8,-5 10,-6l3,-1l2,-1');
+    animation: motion-demo-move 3000ms infinite alternate ease-in-out;
+}
+
+@keyframes motion-demo-move {
+    0% {
+        offset-distance: 0%;
+    }
+    100% {
+        offset-distance: 100%;
+    }
+}
+
+#conus-gradient-demo .sheep .body {
+
+    background: conic-gradient(red, yellow, lime, aqua, blue, magenta, red);
+
+}
+
+#shape-outside-demo .shape.left {
+    shape-outside: polygon(1% 1%, 48% 0%, 41% 3%, 37% 7%, 33% 10%, 29% 14%, 24% 18%, 19% 24%, 15% 29%, 11% 35%, 8% 42%, 5% 48%, 4% 52%, 4% 53%, 6% 57%, 8% 62%, 12% 71%, 16% 75%, 22% 83%, 28% 90%, 34% 94%, 40% 97%, 45% 99%, 51% 100%, 1% 100%);
+    width: 0px;
+    height: 400px;
+    float: left;
+    margin-left: 50%;
+}
+
+#shape-outside-demo .shape.right {
+    shape-outside: polygon(51% 1%, 100% 0%, 100% 0%, 99% 99%, 99% 99%, 48% 100%, 48% 100%, 58% 94%, 58% 94%, 65% 90%, 65% 90%, 72% 86%, 72% 86%, 85% 76%, 85% 80%, 89% 69%, 89% 69%, 94% 61%, 94% 61%, 94% 54%, 94% 54%, 88% 43%, 88% 43%, 83% 35%, 83% 35%, 78% 26%, 78% 26%, 68% 18%, 68% 18%, 61% 11%, 61% 14%);
+    width: 0px;
+    height: 398px;
+    float: right;
+    margin-right: 50%;
+}

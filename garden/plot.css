@@ -1,0 +1,29 @@
+.plot {
+    display: grid;
+}
+
+.plot--mania{
+    visibility: hidden;
+    padding: 35px;
+    width: 1280px;
+    height: 900px;
+    box-sizing: border-box;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    background: #795548;
+    place-content: stretch;
+
+    grid-gap: 20px;
+    grid-template-areas: "🥕 🥕 🥕 🍅" "🥔 🥔 🥔 🍅" "🥔 🥔 🥔 🌽" "🥒 🥒 🧅 🧅";
+}
+
+.plot--petrovna {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    place-content: stretch;
+    place-items: center;
+    height: 100%;
+}
+
+#plot:checked ~ .plot {
+    visibility: visible;
+}

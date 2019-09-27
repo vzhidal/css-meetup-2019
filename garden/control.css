@@ -1,0 +1,49 @@
+
+.control {
+    position: fixed;
+    right: 0;
+}
+
+.control:nth-child(1) {
+    top: 0;
+}
+
+.control:nth-child(2) {
+    top: 15px;
+}
+
+.control:nth-child(3) {
+    top: 30px;
+}
+
+.control:nth-child(4) {
+    top: 60px;
+}
+
+.control:nth-child(5) {
+    top: 75px;
+}
+
+.control:nth-child(6) {
+    top: 90px;
+}
+
+.control:nth-child(7) {
+    top: 105px;
+}
+
+.control:nth-child(8) {
+    top: 120px;
+}
+
+.control:nth-child(9) {
+    top: 135px;
+}
+
+.control:nth-child(10) {
+    top: 165px;
+}
+
+
+
+
